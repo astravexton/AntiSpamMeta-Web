@@ -2,7 +2,7 @@ AntiSpamMeta-web
 ================
 
 Instructions:
-- `sudo pip2 install peewee PyMySQL`
+- `sudo pip2 install peewee PyMySQL pyyaml`
 - Edit main.py, change `CHANGEME` to right values
 - `python2 main.py [port]`
 
