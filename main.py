@@ -1,10 +1,14 @@
 from peewee import MySQLDatabase
 from pymysql import err
-import web
+import web, yaml
 
-host = "CHANGEME"
-user = "CHANGEME"
-passwd = "CHANGEME"
+with open("config.yaml") as f:
+    y = yaml.safe_load(f)
+
+host = y["host"]
+port = y["port"]
+user = y["user"]
+passwd = y["passwd"]
 
 web.config.debug = False
 
@@ -26,7 +30,8 @@ class index:
         yield render.form(results)
 
 if __name__ == "__main__":
-    web.wsgi.runwsgi = lambda func, addr=None: web.wsgi.runfcgi(func, addr)
+    # uncomment this if using behind nginx proxy
+    # web.wsgi.runwsgi = lambda func, addr=None: web.wsgi.runfcgi(func, addr)
     app.run()
 
 def doSQL(n, u, h, a, g):
