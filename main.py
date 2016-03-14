@@ -75,6 +75,8 @@ def doSQL(n, u, h, a, g):
         if row[11]:
             output+= " from {}<span class=\"userhost\">{}{}</span></td>".format(
                 row[11], "!"+row[12] if row[12] else "", "@"+row[13] if row[13] else "") # who it was from
+        elif not row[11]:
+            output+= "</td>"
         output+= "<td>{}</td>".format(row[4] if row[4] else "") # channel
         output+= "<td>{}</td>".format(row[3] if row[3] else "") # reason
         output+= "</tr>"
