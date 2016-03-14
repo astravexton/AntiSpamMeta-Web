@@ -1,0 +1,70 @@
+$def with (results)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+        .userhost { font-size: 9px; }
+    </style>
+</head>
+<body>
+    
+<div class="container-fluid">
+
+<hr/>
+
+<form class="form-inline" method="GET" action="/investigate">
+    <div class="form-group">
+        <label for="nickname">Nickname</label>
+        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="Nickname">
+    </div>
+    
+    <div class="form-group">
+        <label for="user">User</label>
+        <input type="text" class="form-control" name="user" id="user" placeholder="User">
+    </div>
+    
+    <div class="form-group">
+        <label for="hostname">Hostname</label>
+        <input type="text" class="form-control" name="hostname" id="hostname" placeholder="Hostname">
+    </div>
+    
+    <div class="form-group">
+        <label for="gecos">Gecos</label>
+        <input type="text" class="form-control" name="gecos" id="gecos" placeholder="Gecos">
+    </div>
+    
+    <div class="form-group">
+        <label for="account">Account</label>
+        <input type="text" class="form-control" name="account" id="account" placeholder="Account">
+    </div>
+ 
+  <button type="submit" class="btn btn-default">Query</button>
+</form>
+
+<hr/>
+
+$if results:
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>User</th>
+                <th>Event</th>
+                <th>Channel</th>
+                <th>Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            $:results
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
