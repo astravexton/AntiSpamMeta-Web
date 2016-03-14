@@ -6,4 +6,4 @@ Instructions:
 - Edit main.py, change `CHANGEME` to right values
 - `python2 main.py [port]`
 
-Then visit http://<hostname>:[port]/investigate
+Then visit http://hostname:[port]/investigate
